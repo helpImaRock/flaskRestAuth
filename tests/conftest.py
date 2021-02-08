@@ -1,7 +1,7 @@
 import os
 import pytest
 
-from social_cinema import create_app
+from myApp import create_app
 
 @pytest.fixture(scope='module')
 def test_client():

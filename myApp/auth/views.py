@@ -1,5 +1,3 @@
-
-
 from . import auth
 
 @auth.route("/login",methods=['POST'])
