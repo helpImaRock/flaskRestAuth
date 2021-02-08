@@ -1,4 +1,5 @@
 from . import auth
+from myApp import models
 
 @auth.route("/login",methods=['POST'])
 def login():

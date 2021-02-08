@@ -6,6 +6,9 @@ class Config(object):
 	DEBUG=False
 	TESTING=False
 
+'''
+	Environment configs
+'''
 
 class ProductionConfig(Config):
 	pass
@@ -17,3 +20,11 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
 	pass
+
+'''
+	Database configs
+
+'''
+class SQLiteDevelopmentConfig(DevelopmentConfig):
+	SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
+	SQLALCHEMY_TRACK_MODIFICATIONS=False
