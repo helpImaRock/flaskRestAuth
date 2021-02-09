@@ -1,5 +1,6 @@
 from . import auth
 from myApp import models
+from flask import json
 
 @auth.route("/login",methods=['POST'])
 def login():
@@ -12,3 +13,4 @@ def register():
 @auth.route("/<id>",methods=['GET','PUT'])
 def account():
 	pass
+	

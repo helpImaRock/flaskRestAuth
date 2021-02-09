@@ -1,6 +1,6 @@
 from flask import Flask
 from .auth import auth as authbp
-
+from werkzeug.exceptions import HTTPException
 
 def create_app(config_file):
 
@@ -9,9 +9,18 @@ def create_app(config_file):
 
 	with app.app_context():
 		from .models import db
+		
+		## configuration
+		
+		# check has_static_folder setting
+
 		db.init_app(app)
+		
+		### blueprints
 	
-	### blueprints
-	app.register_blueprint(authbp)
+		app.register_blueprint(authbp)
+		from .errors import handle_exception
+		app.register_error_handler(HTTPException, handle_exception)
+	
 
 	return app
